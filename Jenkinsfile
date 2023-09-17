@@ -13,12 +13,12 @@ pipeline {
             }
         }
         
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
                 echo 'Hello World !'
             }
         }
-        stage('Deploy') {
+        stage('Docker Push to Dockerhub') {
             steps {
                 echo 'Hello World !'
             }
