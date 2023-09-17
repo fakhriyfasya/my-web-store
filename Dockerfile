@@ -1,6 +1,8 @@
 # Use the official NGINX image as the base image
 FROM nginx:latest
 
+WORKDIR /usr/share/nginx
+
 # Copy your web content into the NGINX default web server directory
 COPY ./html /usr/share/nginx/
 
