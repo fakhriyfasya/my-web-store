@@ -5,15 +5,14 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    def scannerHome = tool name: 'SonarQube Scanner'
-                    def scannerScript = sh (script: "cd \${WORKSPACE} && ${scannerHome}/bin/sonar-scanner.bat", returnStatus: true)
-                    
-                    if (scannerScript != 0) {
-                        error('SonarQube scanner failed.')
+                    def scannerHome = tool 'SonarScanner';
+                    withSonarQubeEnv(credentialsId: 'sonar-server') {
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
             }
         }
+        
         stage('Build') {
             steps {
                 echo 'Hello World !'
