@@ -4,9 +4,13 @@ pipeline {
     stages {
         stage('SonarQube Analysis') {
             steps {
-                def scannerHome = tool 'SonarScanner';
-                withSonarQubeEnv() {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                script {
+                    def scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                    def scannerScript = sh (script: "cd \${WORKSPACE} && ${scannerHome}/bin/sonar-scanner.bat", returnStatus: true)
+                    
+                    if (scannerScript != 0) {
+                        error('SonarQube scanner failed.')
+                    }
                 }
             }
         }
