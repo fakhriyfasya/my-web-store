@@ -31,7 +31,7 @@ pipeline {
                 sh 'docker push fakhriyfasya/my-web-store:latest'
                 sh 'docker run -d --name my-web-store-01 -p 8083:80 fakhriyfasya/my-web-store:$BUILD_NUMBER'
                 sh 'docker run -d --name my-web-store-02 -p 8084:80 fakhriyfasya/my-web-store:latest'
-                sh 'curl 192.168.223.13:8083'
+                sh 'curl 192.168.223.16:8083'
             }
         }
     }
