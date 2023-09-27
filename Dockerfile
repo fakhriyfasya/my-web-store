@@ -1,5 +1,5 @@
 # Use the official NGINX image as the base image
-FROM nginx:latest
+FROM nginx:alpine
 
 WORKDIR /usr/share/nginx/html
 
