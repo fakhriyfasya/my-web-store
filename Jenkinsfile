@@ -22,7 +22,8 @@ pipeline {
                 sh 'docker build -t fakhriyfasya/my-web-store:latest .'
                 sh 'docker images'
             }
-        }        
+        }
+        
         stage('Push Docker Image to Dockerhub') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
