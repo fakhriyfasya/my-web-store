@@ -1,6 +1,8 @@
 pipeline {
     agent any
-        
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-token2')
+    }
     stages {
         stage('SonarQube Analysis') {
             steps {
