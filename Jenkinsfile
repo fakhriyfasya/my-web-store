@@ -47,6 +47,7 @@ pipeline {
         always {
             sh 'docker logout'
             echo 'docker logout'
+            
         }
     }
 }
