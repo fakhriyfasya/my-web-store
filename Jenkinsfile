@@ -5,11 +5,11 @@ pipeline {
     }
     
     stages {
-        stage('SonarQube Code Analysis') {
+        stage('SonarQube Analysis') {
             steps {
                 script {
                     def scannerHome = tool 'SonarScanner';
-                    withSonarQubeEnv(credentialsId: 'sonar-token') {
+                    withSonarQubeEnv() {
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
@@ -47,7 +47,7 @@ pipeline {
         always {
             sh 'docker logout'
             echo 'docker logout'
-            
+
         }
     }
 }
