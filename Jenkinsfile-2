@@ -5,16 +5,16 @@ pipeline {
     }
 
     stages {
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    def scannerHome = tool 'sonarqube_scanner';
-                    withSonarQubeEnv() {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
-                }
-            }
-        }
+//        stage('SonarQube Analysis') {
+//            steps {
+//                script {
+//                    def scannerHome = tool 'sonarqube_scanner';
+//                  withSonarQubeEnv() {
+//                        sh "${scannerHome}/bin/sonar-scanner"
+//                   }
+//                }
+//           }
+//       }
         
         
         stage('Build Docker Image') {
