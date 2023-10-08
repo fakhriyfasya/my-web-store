@@ -40,7 +40,7 @@ pipeline {
                 sh 'docker rm -f my-web-store-$BUILD_NUMBER'
                 sh 'docker rmi -f fakhriyfasya/my-web-store:$BUILD_NUMBER'
                 sh 'docker rmi -f fakhriyfasya/my-web-store:latest'  
-                echo 'congrats CI Pipeline is SUCCESS !!'          
+                echo 'Great Job Bro, Congrats CI Pipeline is SUCCESS !!' 
             }
         }
     }
